@@ -1,10 +1,12 @@
 function Order(obj) {
-  this.items = []
+  this.items = {}
 }
 
 Order.prototype.add = function (product, quantity) {
-  this.items.push({
-    key: product,
-    value: quantity
-  })
+  this.items[product] = quantity
+};
+
+Order.prototype.remove = function (product, newQuantity) {
+  var val = this.items[product]
+  this.items[product] -= newQuantity
 };
