@@ -17,4 +17,11 @@ describe("Order", () => {
     order.remove("Coffee", 3)
     expect(order.items["Coffee"]).toEqual(1)
   })
+  it("can clear the order to start again", () => {
+    order.add("Tea", 2)
+    order.add("Coffee", 4)
+    order.add("Water", 1)
+    order.clear()
+    expect(order.items).toEqual({})
+  })
 })
