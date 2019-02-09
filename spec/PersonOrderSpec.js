@@ -2,7 +2,7 @@ describe("Person", () => {
   var person;
 
   beforeEach(() => {
-    person = new Person("Hannah");
+    person = new Person("Hannah", "The Coffee Connection");
   })
   it("Should initialize with an empty array", () => {
     expect(person.items).toEqual({})

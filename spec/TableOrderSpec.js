@@ -3,8 +3,8 @@ describe("Table Order", () => {
   var jonny;
 
   beforeEach(() => {
-    chloe = new Person("Chloe");
-    jonny = new Person("Jonny");
+    chloe = new Person("Chloe", "The Coffee Connection");
+    jonny = new Person("Jonny", "The Coffee Connection");
   });
 
   it("takes all the people on a given table's order and combines them into a table order", () => {
