@@ -8,7 +8,7 @@ function Person(name, restaurant) {
 
 Person.prototype.addToOrder = function (product, quantity) {
   if (this.checkRestaurant() === false) {
-    throw "You can't order at a non-existend restaurant!"
+    throw "You can't order at a non-existent restaurant!"
   } else {
     this.items[product] = quantity
   }

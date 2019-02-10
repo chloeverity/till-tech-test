@@ -31,4 +31,8 @@ describe("Person", () => {
     expect(person.completePersonalOrder.length).toEqual(1)
     expect(person.items).toEqual({})
   })
+  it("doesn't let you order if the restaurant isn't listed in json file", () => {
+    testPerson = new Person("Test Person", "Not a restaurant")
+    expect(function() {testPerson.addToOrder("Tea", 2);}).toThrow("You can't order at a non-existent restaurant!")
+  })
 })
