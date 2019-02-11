@@ -5,7 +5,7 @@ function Person(name, restaurant) {
   this.items = {}
   this.completePersonalOrder = []
   this.restaurantList = []
-  this.restaurantPrices = []
+  this.restaurantItems = []
 }
 
 Person.prototype.addToOrder = function (product, quantity) {
@@ -51,9 +51,9 @@ Person.prototype.checkItem = function (product) {
   var restaurantIndex = (this.restaurantList.indexOf(this.restaurant))
   var itemMenu = Object.keys(data[restaurantIndex].prices[0])
   for (i = 0; i < itemMenu.length; i++) {
-    this.restaurantPrices.push(itemMenu[i])
+    this.restaurantItems.push(itemMenu[i])
   }
-  if (this.restaurantPrices.includes(product)) {
+  if (this.restaurantItems.includes(product)) {
     return true
   } else {
     return false
