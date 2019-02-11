@@ -1,4 +1,5 @@
-data = [{
+data = [
+  {
   "shopName": "The Coffee Connection",
   "address": "123 Lakeside Way",
   "phone": "16503600708",
@@ -20,6 +21,21 @@ data = [{
       "Blueberry Muffin": 4.05,
       "Chocolate Chip Muffin": 4.05,
       "Muffin Of The Day": 4.55
-    }
-  ]
-}]
+    }]
+  },
+  {
+  "shopName": "The Orient",
+  "address": "456 Esher High Street",
+  "phone": "01372466657",
+  "tax": 12.75,
+  "prices": [
+    {
+      "Cha Siu Bao": 4.75,
+      "Xiao Long Bao": 6.75,
+      "Har Gow": 3.25,
+      "Guo Tie": 5.00,
+      "Dan Bing": 2.85,
+      "Sheng Jian Bao": 4.80,
+    }]
+  }
+]

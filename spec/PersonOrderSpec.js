@@ -20,7 +20,6 @@ describe("Person", () => {
   it("can clear the order to start again", () => {
     person.addToOrder("Tea", 2)
     person.addToOrder("Flat White", 4)
-    person.addToOrder("Water", 1)
     person.clearFromOrder()
     expect(person.items).toEqual({})
   })
