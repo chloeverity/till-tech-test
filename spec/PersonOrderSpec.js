@@ -13,20 +13,20 @@ describe("Person", () => {
   })
   it("can remove an item from an order if mind is changed", () => {
     person.addToOrder("Tea", 2)
-    person.addToOrder("Coffee", 4)
-    person.removeFromOrder("Coffee", 3)
-    expect(person.items["Coffee"]).toEqual(1)
+    person.addToOrder("Flat White", 4)
+    person.removeFromOrder("Flat White", 3)
+    expect(person.items["Flat White"]).toEqual(1)
   })
   it("can clear the order to start again", () => {
     person.addToOrder("Tea", 2)
-    person.addToOrder("Coffee", 4)
+    person.addToOrder("Flat White", 4)
     person.addToOrder("Water", 1)
     person.clearFromOrder()
     expect(person.items).toEqual({})
   })
   it("can complete an person to send it off to the kitchen", () => {
     person.addToOrder("Tea", 2)
-    person.addToOrder("Coffee", 4)
+    person.addToOrder("Flat White", 4)
     person.completeOrder()
     expect(person.completePersonalOrder.length).toEqual(1)
     expect(person.items).toEqual({})
@@ -34,5 +34,8 @@ describe("Person", () => {
   it("doesn't let you order if the restaurant isn't listed in json file", () => {
     testPerson = new Person("Test Person", "Not a restaurant")
     expect(function() {testPerson.addToOrder("Tea", 2);}).toThrow("You can't order at a non-existent restaurant!")
+  })
+  it("doesn't let you order if the item isn't on the restauran'ts menu", () => {
+    expect(function() {person.addToOrder("Jellybeans", 1);}).toThrow("That item isn't on the menu, please order something else.")
   })
 })
