@@ -21,3 +21,9 @@ Calculator.prototype.calculate = function () {
   }
   return this.totalBeforeTax
 };
+
+Calculator.prototype.orderTotalAfterTax = function () {
+  var tax = data[this.restaurantIndex].tax
+  var unformattedNo = this.totalBeforeTax * (1 + tax/100)
+  return Math.round(unformattedNo * 100) / 100
+};
