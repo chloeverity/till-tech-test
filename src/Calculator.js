@@ -7,16 +7,14 @@ function Calculator(table) {
 }
 
 Calculator.prototype.calculate = function () {
-  for (var i = 0; i < this.table.tableOrder.length; i++){
-    for (var j = 0; j < this.table.tableOrder[i].length; j++) {
-      var obj = this.table.tableOrder[i][j];
-      var key = Object.keys(obj)[0];
-      var quantity = obj[key];
-      var itemIndex = data[this.restaurantIndex].prices.indexOf(key)
-      var priceKey = Object.values(itemIndex)[0]
-      var price = data[this.restaurantIndex].prices[0][key]
-      this.orderPriceList.push(quantity * price)
-    }
+  for (var i = 0; i < Object.keys(this.table.tableOrder[0][0]).length; i++){
+    var obj = this.table.tableOrder[0][0]
+    var key = Object.keys(obj)[i]
+    var quantity = obj[key]
+    var itemIndex = data[this.restaurantIndex].prices.indexOf(key)
+    var priceKey = Object.values(itemIndex)[0]
+    var price = data[this.restaurantIndex].prices[0][key]
+    this.orderPriceList.push(quantity * price)
   }
   for(var i = 0; i < this.orderPriceList.length; i++) {
     this.totalBeforeTax += this.orderPriceList[i];
