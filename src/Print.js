@@ -1,5 +1,6 @@
 function Printer(calculator) {
   this.calculator = calculator
+  this.cashGiven = 0
 }
 
 function roundN(num,n){
@@ -8,6 +9,7 @@ function roundN(num,n){
 
 
 Printer.prototype.print = function(cashGiven) {
+  this.cashGiven = cashGiven
   var restaurantName = this.calculator.restaurant
   var restaurantAddress = data[this.calculator.restaurantIndex].address
   var restaurantTelephone = data[this.calculator.restaurantIndex].phone
@@ -31,5 +33,9 @@ Printer.prototype.print = function(cashGiven) {
   }
   var restaurantTax = data[this.calculator.restaurantIndex].tax
   var totalAfterTax = this.calculator.orderTotalAfterTax()
-  return `${restaurantName}\n${restaurantAddress}\nPhone: ${restaurantTelephone}\nTable: ${tableNo} / [${people}]\n${peopleArray}\n${tableOrder}\n\nTax: $${roundN((totalAfterTax - this.calculator.totalBeforeTax), 2)}\nTotal: $${totalAfterTax}\nCash: $${cashGiven}\nChange: $${roundN((cashGiven - totalAfterTax), 2)}\nThank You!`
+  var taxOnly = roundN((totalAfterTax - this.calculator.totalBeforeTax), 2)
+  var cashGiven = this.cashGiven
+  var change = roundN(((Number.parseFloat(cashGiven)) - totalAfterTax), 2)
+  debugger;
+  return `${restaurantName}\n${restaurantAddress}\nPhone: ${restaurantTelephone}\nTable: ${tableNo} / [${people}]\n${peopleArray}\n${tableOrder}\n\nTax: $${taxOnly}\nTotal: $${totalAfterTax}\nCash: $${cashGiven}\nChange: $${change}\nThank You!`
 }
